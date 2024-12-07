@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa Especial</title>
+
+    <style>
+        body {
+            background-color: #ffccd5;
+            display: flex; /* Torna o body um container flex */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+            height: 100vh; /* Faz o body ocupar toda a altura da janela */
+            margin: 0; /* Remove margens padrão */
+        }
+    
+        .painel {
+            background-color: white;
+            width: 500px;
+            height: 600px;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        h1 {
+            color: #ff6f91;
+            font-size: 40px;
+        }
+    
+        img {
+            width: 200px;
+            height: auto;
+            margin: 20px 0;
+        }
+    
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+    
+        .button-container {
+            display: flex;
+            justify-content: center; /* Alinha os botões no centro */
+            gap: 20px; /* Espaçamento entre os botões */
+            position: relative; /* Torna o container um ponto de referência */
+        }
+    
+        #sim, #nao {
+            height: 40px;
+            width: 100px;
+            background-color: #ff6f91;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        #sim:hover {
+            background-color: #ff4e78;
+        }
+    
+        #nao:hover {
+            background-color: #ff4e78;
+        }
+    
+        #nao {
+            position: absolute;
+        }
+    
+        .footer-message {
+            margin-top: 20px;
+            color: #555;
+            font-size: 0.9em;
+        }
+    </style>
+    
+
+</head>
+<body>
+    <div class="painel">
+        <h1>Cada dia ao seu lado é um presente 💖</h1>
+        <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="Urso fofo apaixonado">
+        <h2>Você aceita ficar comigo para sempre?</h2>
+        <div> 
+        <a href="dois/segunda.html"><button id="sim">Sim!</button></a>
+        <button onmouseover="fuja()" onclick="fuja()" id="nao">Não!</button>
+        </div>
+        <div class="footer-message">
+             Eu te amo muito! 🥰
+        </div>
+    </div>
+
+    <script>
+        const botaoNao = document.getElementById("nao");
+        const botaoSim = document.getElementById("sim");
+        const buttonContainer = document.querySelector(".button-container");
+    
+        function fuja() {
+            // Largura e altura da janela
+            const larguraJanela = window.innerWidth;
+            const alturaJanela = window.innerHeight;
+    
+            // Tamanho do botão "Não"
+            const maxX = larguraJanela - botaoNao.offsetWidth;
+            const maxY = alturaJanela - botaoNao.offsetHeight;
+    
+            // Gera posições aleatórias
+            const aleatorioX = Math.floor(Math.random() * maxX);
+            const aleatorioY = Math.floor(Math.random() * maxY);
+    
+            // Move o botão para a posição aleatória
+            botaoNao.style.left = aleatorioX + "px";
+            botaoNao.style.top = aleatorioY + "px";
+    
+            // Ajusta o alinhamento do botão "Sim"
+            botaoSim.style.marginLeft = "0"; // Centraliza no container
+        }
+    </script>
+</body>
+</html>
